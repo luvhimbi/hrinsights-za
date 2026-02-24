@@ -1,0 +1,165 @@
+/* Footer.css */
+
+.ds-footer {
+    background: var(--navy-950);
+    color: var(--text-muted);
+    padding: 4rem 0 2rem;
+    font-family: var(--font);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
+}
+
+.ds-footer-grid {
+    display: grid;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .ds-footer-grid {
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    }
+}
+
+/* Footer Brand Column */
+.ds-footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ds-footer-logo {
+    height: 60px;
+    /* Refined size */
+    width: auto;
+    filter: brightness(0) invert(1);
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+.ds-footer-brand p {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+/* Footer Headings */
+.ds-footer-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #ffffff;
+    margin: 0 0 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.ds-footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--navy-400);
+    /* Accent underline */
+    border-radius: 2px;
+}
+
+/* Links */
+.ds-footer-links,
+.ds-footer-contact {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.ds-footer-links a,
+.ds-footer-contact a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.ds-footer-links a:hover,
+.ds-footer-contact a:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+    /* Micro-interaction */
+}
+
+/* Contact Specifics */
+.ds-footer-contact li {
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.ds-footer-contact .opacity-50 {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+.ds-footer-social-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center horizontally */
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.ds-footer-socials {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+}
+
+.ds-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.ds-social-icon:hover {
+    background: var(--navy-400);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+
+/* Footer Bottom */
+.ds-footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ds-footer {
+        padding: 3rem 0;
+    }
+
+    .ds-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}

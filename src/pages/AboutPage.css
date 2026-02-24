@@ -1,0 +1,279 @@
+/* AboutPage.css */
+
+/* About Inner Layout */
+.ds-about-inner {
+    display: grid;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ds-about-content {
+    text-align: left;
+}
+
+.ds-about-content h2 {
+    margin-bottom: 1.5rem;
+}
+
+.ds-about-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* Vision & Mission */
+.ds-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .ds-grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.vision-mission-box {
+    background: #f8fafc;
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    height: 100%;
+}
+
+.vision-mission-box h3 {
+    color: var(--navy-900);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* Core Values Grid */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.value-item {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.value-item:hover {
+    border-color: var(--navy-100);
+    background: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.value-icon {
+    color: var(--navy-900);
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    padding: 1rem;
+    background: var(--navy-50);
+    border-radius: 12px;
+    /* Smoother radius */
+    transition: 0.3s;
+}
+
+.value-item:hover .value-icon {
+    background: var(--navy-900);
+    color: #ffffff;
+}
+
+.value-item h4 {
+    font-weight: 700;
+    color: var(--navy-900);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.value-item p {
+    font-size: 0.95rem;
+    color: var(--navy-600);
+    line-height: 1.6;
+}
+
+/* Founder / Team Wrapper */
+.founder-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    margin-top: 2rem;
+}
+
+@media (min-width: 992px) {
+    .founder-wrapper {
+        flex-direction: row;
+        min-height: 550px;
+    }
+}
+
+.founder-image-panel {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--navy-50);
+    min-height: 350px;
+}
+
+/* Added shading overlay to match site-wide style */
+.founder-image-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            hsla(220, 65%, 4%, 0.5) 0%,
+            hsla(220, 50%, 8%, 0.3) 40%,
+            hsla(220, 45%, 15%, 0.1) 100%);
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.founder-wrapper:hover .founder-image-panel::after {
+    opacity: 0.7;
+}
+
+.founder-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.founder-wrapper:hover .founder-img {
+    transform: scale(1.05);
+}
+
+.founder-overlay {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(10, 22, 40, 0.1);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.founder-wrapper:hover .founder-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.overlay-name {
+    color: var(--navy-900);
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin: 0 0 0.15rem;
+}
+
+.overlay-details {
+    color: var(--navy-600);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+.founder-info-panel {
+    flex: 1.2;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 991px) {
+    .founder-info-panel {
+        padding: 3rem 1.5rem;
+        text-align: center;
+    }
+
+    .founder-quote {
+        padding-left: 0;
+        border-left: none;
+        border-top: 3px solid var(--navy-100);
+        padding-top: 1.5rem;
+        font-size: 1.05rem;
+    }
+
+    .founder-overlay {
+        bottom: 1.5rem;
+        left: 1.5rem;
+        right: 1.5rem;
+        padding: 1.25rem;
+    }
+}
+
+.founder-role {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--navy-400);
+    font-weight: 700;
+}
+
+.founder-quote {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--navy-800);
+    font-style: italic;
+    border-left: 4px solid var(--navy-200);
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+/* LinkedIn Link Styling */
+.ds-btn-text-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--navy-900);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.ds-btn-text-dark:hover {
+    color: var(--navy-600);
+    gap: 0.8rem;
+    border-bottom-color: var(--navy-200);
+}
+
+.ds-btn-text-dark svg {
+    transition: transform 0.3s ease;
+}
+
+.ds-btn-text-dark:hover svg {
+    transform: rotate(-10deg) scale(1.1);
+}

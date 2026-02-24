@@ -1,0 +1,173 @@
+/* Hero.css */
+
+.ds-hero {
+    position: relative;
+    min-height: 90vh;
+    /* Increased for impact */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 2rem 6rem;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Background Handling */
+.ds-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--navy-900);
+    background-image: url('/images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    /* Optional: subtle parallax or zoom effect could be added here if we had JS */
+    animation: bg-pan 45s infinite alternate ease-in-out;
+}
+
+@keyframes bg-pan {
+    from {
+        transform: scale(1.02);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+/* Premium Gradient Overlay - More vibrant, less muddy */
+.ds-hero-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            hsla(220, 65%, 4%, 0.7) 0%,
+            hsla(220, 50%, 8%, 0.5) 40%,
+            hsla(220, 45%, 15%, 0.3) 100%);
+    z-index: -1;
+}
+
+.ds-hero-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.ds-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Typography Enhancements */
+.ds-heading-hero {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: clamp(2.75rem, 6vw, 4.75rem);
+    /* Slightly larger */
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin: 0 0 1.75rem;
+    color: #ffffff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    /* Soft shadow for depth */
+}
+
+.ds-hero-body {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 720px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Actions */
+.ds-hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Hero Specific Buttons (overrides or extensions) */
+.ds-hero-actions .ds-btn {
+    padding: 1.125rem 2.5rem;
+    /* Larger touch targets */
+    font-size: 1.1rem;
+    border-radius: 50px;
+    /* Pill shape */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.ds-hero-actions .ds-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.ds-btn-primary {
+    background-color: #ffffff;
+    color: var(--navy-950);
+    border: 2px solid #ffffff;
+}
+
+.ds-btn-primary:hover {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+.ds-btn-outline {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    /* Subtle border */
+    backdrop-filter: blur(4px);
+}
+
+.ds-btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ds-hero {
+        padding-top: 160px;
+        /* Increased from 140px to prevent overlap */
+        min-height: auto;
+        padding-bottom: 6rem;
+        text-align: center;
+    }
+
+    .ds-heading-hero {
+        font-size: clamp(2.25rem, 8vw, 3rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .ds-hero-body {
+        font-size: 1.125rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .ds-hero-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        gap: 1rem;
+    }
+
+    .ds-hero-actions .ds-btn {
+        width: 100%;
+        max-width: none;
+        padding: 1rem 2rem;
+    }
+}

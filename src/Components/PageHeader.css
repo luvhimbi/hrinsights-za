@@ -1,0 +1,78 @@
+/* PageHeader.css */
+
+.ds-page-header {
+    padding: 10rem 0 7rem;
+    background: var(--navy-900);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.ds-page-header.has-bg {
+    color: #ffffff;
+}
+
+.ds-page-header-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            hsla(220, 65%, 4%, 0.7) 0%,
+            hsla(220, 50%, 8%, 0.5) 40%,
+            hsla(220, 45%, 15%, 0.3) 100%);
+    z-index: 0;
+    display: none;
+}
+
+.ds-page-header.has-bg .ds-page-header-overlay {
+    display: block;
+}
+
+/* Optional subtle pattern overlay */
+.ds-page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+    z-index: 1;
+}
+
+.ds-page-title {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    color: #fff;
+    margin: 0 0 1rem;
+    position: relative;
+    z-index: 2;
+    letter-spacing: -0.02em;
+}
+
+.ds-page-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 auto;
+    max-width: 700px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .ds-page-header {
+        padding: 7rem 0 4rem;
+        background-position: center center;
+    }
+
+    .ds-page-title {
+        font-size: 2.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .ds-page-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+}

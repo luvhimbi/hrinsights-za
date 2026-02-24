@@ -1,0 +1,135 @@
+/* ServicesPage.css */
+
+.ds-category-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.ds-accent-line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--navy-900);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* Service Grid */
+.ds-service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Service Card */
+.service-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    height: 100%;
+    overflow: hidden;
+    /* Ensure image corners are clipped */
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(10, 22, 40, 0.08);
+    border-color: var(--navy-100);
+}
+
+.service-card-banner {
+    width: 100%;
+    height: 140px;
+    /* Further reduced from 160px for compact feel */
+    overflow: hidden;
+    position: relative;
+}
+
+.service-card-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover .service-card-banner img {
+    transform: scale(1.08);
+}
+
+.service-card-body {
+    padding: 1.25rem 1.5rem;
+    /* Tighter padding for cleaner look */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Typography override for card context */
+.service-card .ds-heading-3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--navy-900);
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.ds-service-brief {
+    color: var(--navy-600);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    /* Tightened margin */
+}
+
+/* Actions */
+.ds-service-actions {
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem 1.25rem;
+    margin-top: auto;
+}
+
+.service-link {
+    color: var(--navy-700);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.service-link:hover {
+    color: var(--navy-900);
+    gap: 0.6rem;
+}
+
+/* Button overrides for this context if needed */
+.service-card .ds-btn-sm {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .ds-service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ds-service-actions {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .service-link {
+        justify-content: center;
+    }
+}

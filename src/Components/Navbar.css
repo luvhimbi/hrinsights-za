@@ -1,0 +1,324 @@
+/* Navbar.css */
+
+/* Top Bar (Contact Info & Socials) */
+.ds-top-bar {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    /* Softer border */
+    padding: 8px 0;
+    width: 100%;
+    font-size: 0.85rem;
+}
+
+.ds-top-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ds-top-contact-info {
+    display: flex;
+    gap: 2rem;
+}
+
+.ds-top-link,
+.ds-social-link {
+    color: var(--navy-900);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.ds-top-link:hover,
+.ds-social-link:hover {
+    color: var(--navy-600);
+    transform: translateY(-1px);
+    /* Micro-interaction */
+}
+
+.ds-top-socials {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+/* Main Navbar */
+.ds-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: var(--font);
+    background: #001b3d;
+    /* Fixed background on mobile for visibility */
+    backdrop-filter: blur(12px);
+}
+
+@media (min-width: 992px) {
+    .ds-navbar {
+        background: rgba(255, 255, 255, 0);
+        /* Transparent initially on desktop */
+        backdrop-filter: blur(0px);
+    }
+
+    .ds-navbar.scrolled {
+        background: #001b3d;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+}
+
+
+.ds-navbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    /* Increased padding for premium feel */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: padding 0.3s ease;
+}
+
+.ds-navbar.scrolled .ds-navbar-inner {
+    padding: 0.75rem 1.5rem;
+    /* Compact on scroll */
+}
+
+/* Brand / Logo */
+.ds-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+}
+
+.ds-navbar-brand:hover {
+    opacity: 0.9;
+}
+
+.ds-navbar-logo-img {
+    height: 48px;
+    /* Refined size */
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.ds-navbar.scrolled .ds-navbar-logo-img {
+    height: 40px;
+}
+
+.ds-navbar-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.ds-navbar-logo {
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.ds-navbar-tagline {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Navigation Links */
+.ds-nav-container {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .ds-nav-container {
+        display: block;
+        margin-right: 2rem;
+        /* Move away from the extreme end */
+    }
+}
+
+.ds-navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    /* More breathing room */
+}
+
+.ds-navbar-links .nav-link {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    /* Slightly softer white */
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.ds-navbar-links .nav-link:hover,
+.ds-navbar-links .nav-link.active {
+    color: #ffffff;
+}
+
+/* Premium underline effect */
+.ds-navbar-links .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.ds-navbar-links .nav-link:hover::after,
+.ds-navbar-links .nav-link.active::after {
+    width: 100%;
+}
+
+/* CTA Button in Navbar */
+
+
+/* Mobile Toggle */
+.ds-navbar-toggle {
+    display: none;
+    background: rgba(10, 22, 40, 0.2);
+    /* Subtle bg for visibility */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.ds-navbar-toggle:hover {
+    background: rgba(10, 22, 40, 0.4);
+}
+
+.ds-navbar-toggle .bar {
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 991px) {
+    .ds-navbar-toggle {
+        display: flex;
+    }
+
+    /* Animation: Burger to X */
+    .nav-open .ds-navbar-toggle .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-open .ds-navbar-toggle .bar:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    .nav-open .ds-navbar-toggle .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+
+/* Mobile Menu */
+@media (max-width: 991px) {
+    .ds-nav-container.active {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #001b3d;
+        padding: 6rem 2rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        z-index: 1100;
+        /* Above the main navbar elements */
+        overflow-y: auto;
+    }
+
+    .ds-navbar-links {
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .ds-navbar-links .nav-link {
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding: 1rem;
+        color: #ffffff;
+    }
+
+    /* Ensure brand and toggle are above the menu overlay when open */
+    .nav-open .ds-navbar-brand,
+    .nav-open .ds-navbar-toggle {
+        position: relative;
+        z-index: 1200;
+    }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .ds-top-socials {
+        display: none;
+    }
+
+    .ds-top-bar-inner {
+        justify-content: center;
+    }
+
+    .ds-navbar-logo-text {
+        display: flex;
+        /* Keep logo text visible for better branding */
+    }
+
+    .ds-navbar-logo {
+        font-size: 1.15rem;
+        /* Slightly smaller for mobile */
+    }
+
+    .ds-navbar-tagline {
+        font-size: 0.6rem;
+    }
+
+    .ds-navbar-logo-img {
+        height: 36px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .ds-navbar-logo-text {
+        display: none;
+    }
+}

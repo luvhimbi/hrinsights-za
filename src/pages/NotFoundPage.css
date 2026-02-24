@@ -1,0 +1,79 @@
+/* NotFoundPage.css */
+
+.ds-not-found {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 2rem 5rem;
+    /* Large top padding to clear the fixed navbar */
+    background-color: var(--white);
+    font-family: var(--font);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ds-not-found-content {
+    max-width: 600px;
+    width: 100%;
+}
+
+.ds-404-visual {
+    position: relative;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.ds-404-number {
+    font-size: clamp(8rem, 25vw, 15rem);
+    font-weight: 900;
+    line-height: 0.8;
+    margin: 0;
+    color: var(--navy-900);
+    /* Solid color, no gradient */
+    letter-spacing: -0.05em;
+    position: relative;
+    z-index: 1;
+}
+
+.ds-not-found-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 800;
+    color: var(--navy-900);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.ds-not-found-text {
+    font-size: 1.25rem;
+    color: var(--navy-600);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ds-not-found-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .ds-not-found {
+        min-height: 100vh;
+        padding-top: 140px;
+        /* Extra space for mobile nav */
+    }
+
+    .ds-not-found-actions .ds-btn {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .ds-404-number {
+        font-size: clamp(6rem, 40vw, 10rem);
+    }
+}

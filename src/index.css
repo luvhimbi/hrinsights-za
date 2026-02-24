@@ -1,0 +1,930 @@
+/*
+   HR INSIGHTS — Design system
+   Dark blue and white backgrounds. Professional, neutral. Plus Jakarta Sans.
+*/
+
+/* --- CSS Variables (Dark blue + white) --- */
+:root {
+  --navy-950: #020c1b;
+  --navy-900: #0a1628;
+  --navy-800: #0f2744;
+  --navy-700: #1a3a5c;
+  --navy-600: #234d73;
+  --navy-500: #2d5a8a;
+  --navy-400: #4a7ab0;
+  --navy-300: #7ba3d4;
+  --navy-200: #b8d4eb;
+  --navy-100: #e2eef8;
+  --navy-50: #f0f6fc;
+  --white: #ffffff;
+  --accent: #ffffff;
+  --accent-hover: #f1f5f9;
+  --text: black;
+  --text-muted: rgba(248, 250, 252, 0.75);
+  --text-on-white: var(--navy-900);
+  --text-muted-on-white: var(--navy-600);
+  --font: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* --- Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-weight: 500;
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Dark sections: light text (Default for .ds-section) */
+.ds-section h1,
+.ds-section h2,
+.ds-section h3,
+.ds-section h4,
+.ds-section-alt h1,
+.ds-section-alt h2,
+.ds-section-alt h3,
+.ds-section-alt h4 {
+  color: #ffffff;
+}
+
+.ds-section p,
+.ds-section-alt p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* White sections: dark text */
+.ds-section-light h1,
+.ds-section-light h2,
+.ds-section-light h3,
+.ds-section-light h4 {
+  color: var(--navy-900) !important;
+}
+
+.ds-section-light p {
+  color: var(--navy-600) !important;
+}
+
+.ds-section-light .ds-body-lg {
+  color: var(--navy-600) !important;
+}
+
+
+.ds-section-light .ds-contact-box h4 {
+  color: #ffffff !important;
+}
+
+.ds-section-light .ds-contact-box p {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* --- Layout --- */
+.ds-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .ds-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* --- Typography --- */
+.ds-heading-hero {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  color: #fff;
+}
+
+.ds-heading-1 {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.ds-heading-2 {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.ds-heading-3 {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  color: var(--text);
+  line-height: 1.3;
+}
+
+
+.ds-body-lg {
+  font-size: 1.125rem;
+  margin: 0 0 1.5rem;
+  max-width: 42ch;
+}
+
+.ds-section .ds-body-lg,
+.ds-section-alt .ds-body-lg {
+  color: var(--text-muted);
+}
+
+.ds-section-light .ds-body-lg {
+  color: var(--text-muted-on-white);
+}
+
+/* Button Styles */
+.ds-btn {
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-width: 160px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  /* default border */
+  font-family: var(--font);
+}
+
+/* Primary Action (Navy BG, White Text) - Use on White Backgrounds */
+.ds-btn-primary {
+  background: var(--navy-900) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--navy-950) !important;
+}
+
+.ds-btn-primary:hover {
+  background: var(--navy-700) !important;
+  border-color: var(--navy-800) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(10, 22, 40, 0.15);
+  color: #ffffff !important;
+}
+
+
+/* Secondary Action (White BG, Navy Text) - Use on Dark Backgrounds (Hero/CTA) */
+.ds-btn-secondary {
+  background: #ffffff !important;
+  color: var(--navy-900) !important;
+  border: 2px solid #e2e8f0 !important;
+}
+
+.ds-btn-secondary:hover {
+  background: var(--navy-50) !important;
+  border-color: var(--navy-100) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: var(--navy-900) !important;
+}
+
+
+/* Outline Navy (Navy Text, Navy Border) - Use on White Backgrounds */
+.ds-btn-outline {
+  background-color: transparent;
+  color: var(--navy-900);
+  border-color: var(--navy-900);
+}
+
+.ds-btn-outline:hover {
+  background-color: var(--navy-900);
+  color: #ffffff;
+}
+
+/* Outline White (White Text, White Border) - Use on Dark Backgrounds */
+.ds-btn-outline-white {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.ds-btn-outline-white:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .ds-hero {
+    padding-top: 120px;
+  }
+
+  .ds-hero-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .ds-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.fw-800 {
+  font-weight: 800;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-5 {
+  margin-top: 1.5rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
+
+.text-white {
+  color: #fff;
+}
+
+/* Remove top padding from main since Hero is above it */
+.ds-main-content {
+  background-color: #ffffff;
+  padding-top: 0;
+}
+
+/* --- Sections --- */
+.ds-section {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background-color: var(--navy-900);
+  color: #ffffff;
+}
+
+.ds-section-light {
+  padding: clamp(60px, 8vw, 100px) 0;
+  background-color: #ffffff;
+  color: var(--navy-900);
+}
+
+@media (max-width: 768px) {
+
+  .ds-section,
+  .ds-section-light {
+    padding: 50px 0;
+  }
+}
+
+
+
+/* Compact Cards */
+.ds-card {
+  background: #ffffff;
+  padding: 24px;
+  /* Reduced from 40px */
+  border: 1px solid #eeeeee;
+  border-radius: 6px;
+}
+
+.ds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  /* Tighter gap */
+}
+
+/* Compressed Divider */
+.ds-divider {
+  margin: 20px 0;
+}
+
+/* Compressed CTA Bar */
+.cta-bar {
+  padding: 60px 0;
+  background: #0a1628;
+}
+
+/* Profile card compact layout */
+.profile-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Layout Helpers */
+.ds-flex-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+.ds-flex-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.ds-content-side {
+  flex: 1;
+}
+
+.ds-image-side {
+  flex: 1;
+}
+
+.ds-rounded-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+/* Pillar Styling */
+.ds-pillar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ds-pillar-item {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.ds-icon-inline {
+  color: #0a1628;
+  margin-top: 4px;
+}
+
+/* Feature Stack */
+.ds-feature-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.ds-feature-mini {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.ds-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0a1628;
+  opacity: 0.2;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+
+  .ds-flex-row,
+  .ds-flex-row.reverse {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .ds-rounded-img {
+    height: 300px;
+  }
+}
+
+.ds-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0a1628;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #0a1628;
+}
+
+.bg-light-gray {
+  background-color: #f9f9f9 !important;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.ds-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ds-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  color: #444;
+}
+
+.ds-icon-navy {
+  color: #0a1628;
+}
+
+.ds-grid-three {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.ds-info-card {
+  padding: 30px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.ds-info-card.highlighted {
+  background: #0a1628;
+  color: white;
+  border: none;
+}
+
+.ds-list {
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 2;
+}
+
+.ds-list li::before {
+  content: "•";
+  color: #0a1628;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+@media (max-width: 768px) {
+  .ds-grid-three {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ds-section {
+    padding: 30px 0;
+  }
+
+  .profile-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+/* Navbar styles removed - handled by Navbar.css */
+
+
+
+
+
+
+
+
+
+
+:root {
+  --brand-dark: var(--navy-900);
+  /* Ensuring it maps to your Navy variable */
+}
+
+
+
+
+
+.ds-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .ds-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+}
+
+/* --- Cards (dark sections) --- */
+.ds-section .ds-card,
+.ds-section-alt .ds-card {
+  background: var(--navy-800);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.ds-section .ds-card:hover,
+.ds-section-alt .ds-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.ds-card-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy-700);
+  border-radius: 12px;
+  color: var(--navy-300);
+  margin-bottom: 1rem;
+}
+
+.ds-section .ds-card-icon.accent,
+.ds-section-alt .ds-card-icon.accent {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.ds-section .ds-card-icon.success,
+.ds-section-alt .ds-card-icon.success {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.ds-card h3,
+.ds-card h4 {
+  margin: 0 0 0.5rem;
+}
+
+.ds-section .ds-card p,
+.ds-section-alt .ds-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Cards on white sections */
+.ds-section-light .ds-card {
+  background: var(--white);
+  border: 1px solid rgba(10, 22, 40, 0.12);
+  box-shadow: 0 2px 12px rgba(10, 22, 40, 0.06);
+}
+
+.ds-section-light .ds-card:hover {
+  border-color: rgba(10, 22, 40, 0.2);
+}
+
+.ds-section-light .ds-card-icon {
+  background: var(--navy-100);
+  color: var(--navy-600);
+}
+
+.ds-section-light .ds-card p {
+  color: var(--text-muted-on-white);
+}
+
+.ds-section-light .ds-card h3,
+.ds-section-light .ds-card h4 {
+  color: var(--text-on-white);
+}
+
+/* Why section elements on white */
+.ds-section-light .ds-footer-col .ds-card-icon {
+  background: var(--navy-100);
+  color: var(--navy-600);
+}
+
+.ds-section-light .ds-footer-col .text-2xl {
+  color: var(--navy-600);
+}
+
+.ds-section-light .text-white {
+  color: var(--text-on-white) !important;
+}
+
+.ds-section-light .opacity-75 {
+  color: var(--text-muted-on-white);
+}
+
+.ds-footer-col {
+  padding: 0.5rem 0;
+}
+
+.ds-footer-col .ds-card-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 1rem;
+}
+
+/* --- Why HR Insights (dark strip) --- */
+/* ds-section-alt: darker strip, ensure all text is light (overrides Bootstrap) */
+.ds-section-alt {
+  background: var(--navy-800);
+}
+
+.ds-section-alt,
+.ds-section-alt .ds-heading-2,
+.ds-section-alt .ds-heading-3,
+.ds-section-alt .ds-heading-4,
+.ds-section-alt p,
+.ds-section-alt .opacity-75 {
+  color: var(--text) !important;
+}
+
+.ds-section-alt .opacity-75 {
+  opacity: 0.85;
+}
+
+.ds-section-alt .ds-card-icon {
+  background: var(--navy-700);
+  color: var(--navy-200);
+}
+
+.ds-section-alt .text-2xl {
+  color: var(--navy-200);
+}
+
+/* --- CTA Bar --- */
+.cta-bar {
+  background: var(--navy-900);
+  padding: 3rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cta-title {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  color: #fff;
+  margin: 0 0 0.5rem;
+}
+
+.cta-bar .lead {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Scroll to top --- */
+
+
+
+
+/*!* --- Legal content --- *!*/
+/*.ds-legal-content {*/
+/*  font-family: var(--font);*/
+/*  color: var(--text-muted);*/
+/*}*/
+
+/*.ds-legal-content .ds-heading-1 {*/
+/*  color: #fff;*/
+/*}*/
+
+/*.ds-legal-content .ds-heading-3 {*/
+/*  color: var(--navy-200);*/
+/*  margin-top: 1.5rem;*/
+/*}*/
+
+.ds-list {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.ds-list li {
+  margin-bottom: 0.35rem;
+}
+
+/* --- About section layout --- */
+.ds-about-inner {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .ds-about-inner {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+}
+
+.ds-about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.ds-about-stat {
+  text-align: center;
+  padding: 1rem;
+}
+
+/* --- About / Contact blocks (content-rich look) --- */
+.ds-section-alt {
+  background: var(--navy-800);
+}
+
+.ds-section-alt .ds-heading-2 {
+  color: #fff;
+}
+
+.ds-stat {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.ds-section .ds-contact-card,
+.ds-section-alt .ds-contact-card {
+  background: var(--navy-700);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.ds-section .ds-contact-card h4,
+.ds-section-alt .ds-contact-card h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--navy-200);
+}
+
+.ds-section .ds-contact-card p,
+.ds-section .ds-contact-card a,
+.ds-section-alt .ds-contact-card p,
+.ds-section-alt .ds-contact-card a {
+  margin: 0;
+  color: var(--text);
+  text-decoration: none;
+}
+
+
+/* --- Contact Section & Wrapper --- */
+.contact-section {
+  background-color: #f8fafc;
+  padding: 70px 0;
+}
+
+.contact-wrapper {
+  background: white;
+  box-shadow: 0 20px 40px rgba(0, 27, 61, 0.08);
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .contact-wrapper {
+    flex-direction: row;
+  }
+}
+
+/* --- Info Panel (Navy Side) --- */
+.contact-info-panel {
+  background: var(--brand-dark);
+  color: white;
+  padding: 45px;
+  flex: 1;
+}
+
+.ds-contact-info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.ds-label-dark {
+  color: var(--navy-900);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* --- Form Panel (White Side) --- */
+.contact-form-panel {
+  padding: 45px;
+  flex: 1.5;
+}
+
+.form-control-custom {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  padding: 12px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-family: var(--font);
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.form-control-custom:focus {
+  border-color: var(--brand-dark);
+}
+
+/* --- Submit Button --- */
+.btn-submit {
+  background: var(--brand-dark);
+  color: white;
+  border: none;
+  padding: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  width: 100%;
+  transition: 0.3s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+/* Core Values Layout */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.vision-mission-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Ensures text stays left-aligned within the grid column */
+  width: 100%;
+}

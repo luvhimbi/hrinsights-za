@@ -1,0 +1,377 @@
+/* HomePage.css */
+
+/* Core Pillars Cards */
+.ds-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Service Showcase Enhancements */
+.service-showcase-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid rgba(10, 22, 40, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 !important;
+    /* Flush image */
+    overflow: hidden;
+    background: #fff;
+}
+
+.service-card-image {
+    position: relative;
+    height: 220px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.service-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.service-showcase-card:hover .service-card-image img {
+    transform: scale(1.1);
+}
+
+
+
+.service-card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.service-showcase-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(10, 22, 40, 0.08);
+    border-color: var(--navy-200);
+}
+
+.service-card-body p {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    color: var(--navy-600);
+    font-size: 0.95rem;
+}
+
+.service-learn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--navy-900);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+    margin-top: auto;
+}
+
+
+.service-learn-more:hover {
+    color: var(--navy-600);
+    gap: 0.75rem;
+}
+
+.service-learn-more svg {
+    transition: transform 0.2s ease;
+}
+
+.service-learn-more:hover svg {
+    transform: translateX(3px);
+}
+
+
+.ds-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--navy-100);
+}
+
+.ds-card-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--navy-50);
+    color: var(--navy-900);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.ds-card:hover .ds-card-icon {
+    background: var(--navy-900);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.ds-card-icon.accent {
+    background: #f0fdf4;
+    /* Light green tint */
+    color: #166534;
+}
+
+.ds-card:hover .ds-card-icon.accent {
+    background: #166534;
+    color: #ffffff;
+}
+
+.ds-card-icon.success {
+    background: #eff6ff;
+    /* Light blue tint */
+    color: #1e40af;
+}
+
+.ds-card:hover .ds-card-icon.success {
+    background: #1e40af;
+    color: #ffffff;
+}
+
+/* Feature Columns (Why Choose Us) */
+.ds-feature-col {
+    padding: 2rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    /* Visible border by default */
+    background: #ffffff;
+}
+
+.ds-feature-col:hover {
+    background: #f8fafc;
+    transform: translateY(-5px);
+    border-color: var(--navy-200);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.ds-feature-col .ds-card-icon {
+    width: auto;
+    height: auto;
+    background: transparent;
+    justify-content: flex-start;
+    border-radius: 0;
+    margin-bottom: 1rem;
+}
+
+.ds-feature-col:hover .ds-card-icon {
+    background: transparent;
+    color: inherit;
+    transform: none;
+}
+
+/* Profile Download Card */
+.profile-download-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 3rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-download-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: var(--navy-900);
+}
+
+.profile-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.profile-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: var(--navy-50);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy-900);
+    flex-shrink: 0;
+}
+
+.profile-text {
+    flex: 1;
+}
+
+.profile-action {
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .profile-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-action {
+        width: 100%;
+    }
+
+    .profile-action .ds-btn {
+        width: 100%;
+    }
+}
+
+/* CTA Bar */
+.cta-bar {
+    background: var(--navy-900);
+    padding: 5rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-bar::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.cta-title {
+    font-family: var(--font);
+    font-weight: 800;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: #fff;
+    margin: 0 0 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+.cta-bar .lead {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.cta-bar .ds-btn {
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* How We Work Section */
+.how-we-work-section {
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.methodology-tag {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: var(--navy-50);
+    color: var(--navy-900);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+}
+
+.risk-assessment-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 3rem;
+    margin-top: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    .risk-assessment-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+.assessment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.assessment-item {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.assessment-icon {
+    flex-shrink: 0;
+    color: var(--navy-900);
+}
+
+.assessment-content h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--navy-900);
+}
+
+.assessment-content p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.approach-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.highlight-box {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.highlight-box h5 {
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--navy-900);
+}
+
+.highlight-box p {
+    font-size: 0.9rem;
+    margin: 0;
+}
