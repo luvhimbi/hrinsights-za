@@ -66,18 +66,81 @@ export default function ContactPage() {
     }
   };
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact HR Insights ZA",
+    "description": "Get in touch with HR Insights for strategic HR consulting, recruitment, and labour law compliance services in South Africa.",
+    "url": "https://hrinsightsza.co.za/contact",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "@id": "https://hrinsightsza.co.za/#organization",
+      "name": "HR Insights ZA",
+      "telephone": "+27694082742",
+      "email": "hrinsights1@outlook.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pretoria",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://hrinsightsza.co.za/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Contact"
+      }
+    ]
+  };
+
   return (
     <div className="ds-page">
       <SEO
-        title="Contact HR Insights | Get in Touch for Expert HR Solutions"
-        description="Have questions? We're here to help your business navigate the complexities of HR. Contact us today for recruitment and HR governance support."
-        keywords="Contact HR, Hire HR Consultant, Recruitment Inquiry"
+        title="Contact HR Insights ZA | Book a Free HR Consultation in Pretoria"
+        description="Contact HR Insights for strategic HR governance, recruitment, employee relations, and labour law compliance consulting. Based in Pretoria, serving businesses across South Africa. Response within 24-48 hours."
+        keywords="contact HR consultant Pretoria, book HR consultation South Africa, recruitment agency Gauteng, HR support inquiry, free HR consultation"
+        path="/contact"
+        jsonLd={[contactSchema, breadcrumbSchema]}
       />
       <PageHeader
         title="Get in touch"
         subtitle="Have questions? We're here to help your business navigate the complexities of HR."
-        backgroundImage="/images/faq/faq.jpg"
+        backgroundImage="/images/faq/faq.webp"
       />
+
+      <section className="contact-intro ds-section-light pb-0">
+        <div className="ds-container text-center">
+          <h2 className="ds-heading-2 mb-4">Partner with Strategic HR Professionals</h2>
+          <p className="ds-body-lg mx-auto" style={{ maxWidth: '900px' }}>
+            Looking for expert guidance in recruitment, labor law compliance, or organizational development? 
+            Our team at HR Insights is ready to help you build a resilient, high-performing workforce. 
+            Whether you are a startup needing a compliant foundation or an established corporate entity refining its HR architecture, 
+            we provide tailored solutions that align with South African labor legislation. 
+          </p>
+          <p className="ds-body-md mt-3 opacity-75">
+            Expect a response from our strategic consultants within 24-48 business hours. 
+            We look forward to transforming your people strategy.
+          </p>
+        </div>
+      </section>
 
       <section className="contact-section">
         <div className="ds-container">
@@ -172,7 +235,7 @@ export default function ContactPage() {
         <div className="ds-container">
           <div className="map-wrapper">
             <iframe
-              title="HR Insights Location"
+              title="HR Insights Location - Pretoria, Gauteng, South Africa"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114841.05435970341!2d28.08381!3d-25.864005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95640325d7b6b1%3A0xe5a6d5930b497e3b!2sCenturion!5e0!3m2!1sen!2sza!4v1740058564000!5m2!1sen!2sza"
               width="100%"
               height="450"

@@ -8,6 +8,7 @@ import './FaqPage.css';
 interface FAQ {
     question: string;
     answer: string | React.ReactNode;
+    plainAnswer: string;
 }
 
 export default function FaqPage() {
@@ -16,6 +17,7 @@ export default function FaqPage() {
     const faqs: FAQ[] = [
         {
             question: "How does HR Insights ensure my organisation remains compliant with labor laws?",
+            plainAnswer: "We treat compliance as the foundation of your business. Our approach involves aligning all your HR documentation, from contracts to policies, with the BCEA, LRA, and Employment Equity Act.",
             answer: (
                 <>
                     We treat compliance as the foundation of your business. Our approach involves aligning all your HR documentation—from contracts to policies—with the BCEA, LRA, and Employment Equity Act.
@@ -28,6 +30,7 @@ export default function FaqPage() {
         },
         {
             question: "What recruitment support models do you offer?",
+            plainAnswer: "We provide flexible support tailored to your needs, including Retainer support for ongoing hiring and Project-based hiring for specific growth spurts. All our recruitment is governance-led to ensure fair and defensible processes.",
             answer: (
                 <>
                     We provide flexible support tailored to your needs, including Retainer support for ongoing hiring and Project-based hiring for specific growth spurts. All our recruitment is governance-led to ensure fair and defensible processes.
@@ -40,6 +43,7 @@ export default function FaqPage() {
         },
         {
             question: "Can you help reduce our risk at the CCMA?",
+            plainAnswer: "Yes. By implementing procedurally fair disciplinary documentation, structured IR support, and job-aligned performance systems (PIPs), we significantly reduce your organisation's CCMA exposure and vulnerability to disputes.",
             answer: (
                 <>
                     Yes. By implementing procedurally fair disciplinary documentation, structured IR support, and job-aligned performance systems (PIPs), we significantly reduce your organisation's CCMA exposure and vulnerability to disputes.
@@ -52,6 +56,7 @@ export default function FaqPage() {
         },
         {
             question: "How do you handle Organisational Development (OD)?",
+            plainAnswer: "Our OD approach is diagnostic. We don't just treat symptoms; we identify root causes through structure reviews and role clarity assessments to ensure your people practices support sustainable performance.",
             answer: (
                 <>
                     Our OD approach is diagnostic. We don't just treat symptoms; we identify root causes through structure reviews and role clarity assessments to ensure your people practices support sustainable performance.
@@ -64,6 +69,7 @@ export default function FaqPage() {
         },
         {
             question: "Why should we choose HR Insights over a traditional agency?",
+            plainAnswer: "Traditional agencies often focus on just filling seats. HR Insights focuses on building defensible systems. We combine recruitment with governance, ensuring every hire and people decision is aligned to both labor law and your strategic goals.",
             answer: (
                 <>
                     Traditional agencies often focus on just filling seats. HR Insights focuses on building defensible systems. We combine recruitment with governance, ensuring every hire and people decision is aligned to both labor law and your strategic goals.
@@ -80,17 +86,50 @@ export default function FaqPage() {
         setOpenIndex(openIndex === index ? null : index);
     };
 
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.plainAnswer
+            }
+        }))
+    };
+
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://hrinsightsza.co.za/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "FAQ"
+            }
+        ]
+    };
+
     return (
         <div className="ds-page">
             <SEO
-                title="FAQ | HR Insights - Common HR & Recruitment Questions"
-                description="Get answers to your questions about HR compliance, recruitment support models, CCMA risk reduction, and our diagnostic approach to HR."
-                keywords="HR FAQ, Recruitment FAQ, CCMA Risk FAQ, South Africa Labour Law FAQ"
+                title="FAQ | HR Insights ZA - HR Compliance, Recruitment & CCMA Questions"
+                description="Frequently asked questions about HR compliance in South Africa, recruitment support models, CCMA risk reduction, organisational development, and how HR Insights works with businesses."
+                keywords="HR FAQ South Africa, CCMA risk reduction, recruitment support models, HR compliance questions, labour law FAQ, organisational development FAQ"
+                path="/faq"
+                jsonLd={[faqSchema, breadcrumbSchema]}
             />
             <PageHeader
-                title="Frequently Asked Questions"
-                subtitle="Clarifying how we support your business through structured, compliant HR solutions."
-                backgroundImage="/images/faq/faq.jpg"
+                title="HR & Labour Compliance FAQ"
+                subtitle="Clarifying how we protect and support South African businesses through structured, compliant HR solutions."
+                backgroundImage="/images/faq/faq.webp"
             />
 
             <section className="faq-section ds-section-light">
@@ -128,7 +167,7 @@ export default function FaqPage() {
                                     <MessageSquare size={32} />
                                 </div>
                                 <h3>Still have questions?</h3>
-                                <p>We’re here to help you navigate your unique HR challenges. Let's start a conversation about how we can protect and grow your business.</p>
+                                <p>We're here to help you navigate your unique HR challenges. Let's start a conversation about how we can protect and grow your business.</p>
                                 <Link to="/contact" className="btn-submit">
                                     <Send size={18} style={{ marginRight: '10px' }} />
                                     Contact Us Now

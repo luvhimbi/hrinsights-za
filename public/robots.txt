@@ -1,0 +1,32 @@
+# Crawlers
+User-agent: *
+Allow: /
+Disallow: /dist/
+
+# AI Crawlers - Explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Sitemap
+Sitemap: https://hrinsightsza.co.za/sitemap.xml
+
+# LLM Context
+Host: https://hrinsightsza.co.za

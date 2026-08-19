@@ -162,12 +162,12 @@ body {
 
 /* Button Styles */
 .ds-btn {
-  padding: 14px 28px;
+  padding: 11px 22px;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  min-width: 160px;
+  min-width: 140px;
   display: inline-flex;
   align-items: center;
   justify-content: center;

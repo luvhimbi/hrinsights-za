@@ -1,0 +1,5 @@
+name = "hrinsights-za"
+compatibility_date = "2026-02-24"  # Or today's date
+
+[assets]
+directory = "./dist"  # Points to your Vite output

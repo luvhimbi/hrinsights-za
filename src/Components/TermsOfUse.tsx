@@ -2,7 +2,6 @@
 const TermsOfUse = () => {
     return (
         <div className="ds-legal-content">
-            <h1 className="ds-heading-1 mb-4">Terms of Use</h1>
             <p className="ds-body-lg mb-4">
                 Last updated: February 23, 2026
             </p>

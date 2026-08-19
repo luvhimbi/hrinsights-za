@@ -1,36 +1,62 @@
+
 <!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
+  
+  <!-- SEO & Analytics Setup -->
+  <!-- Google Analytics (GA4) (Paste your Google Tag code below) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID_HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YOUR_MEASUREMENT_ID_HERE');
+  </script>
+  -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet" />
-  <link rel="icon" type="image/svg+xml" href="/images/Logo1.png" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+  </noscript>
+  <link rel="preload" as="image" href="/images/heroSection.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/images/faq/faq.webp" fetchpriority="high" />
+  <link rel="icon" type="image/webp" href="/images/Logo1.webp" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HR Insights | Recruitment & HR Governance Services South Africa</title>
+  <link rel="canonical" href="https://hrinsightsza.co.za/" />
+  <title>HR Insights ZA | Strategic HR Governance & Recruitment Consulting in South Africa</title>
   <meta name="description"
-    content="HR Insights provides expert HR governance, recruitment, and employee relations services in South Africa. Transform your workforce with our human-centered HR solutions." />
+    content="HR Insights is a Black woman-owned strategic HR consulting firm in Pretoria, South Africa. Expert HR governance, recruitment, employee relations, and CCMA compliance services." />
   <meta name="keywords"
-    content="HR Consultancy South Africa, Recruitment Services, HR Governance, Employee Relations, Performance Management, IR Support, LRA Compliance, BCEA, Employment Equity" />
-  <meta name="author" content="HR Insights" />
+    content="HR consulting South Africa, HR governance Pretoria, recruitment services Gauteng, employee relations, CCMA compliance, Black woman-owned HR firm, labour law compliance, performance management, organisational development" />
+  <meta name="author" content="HR Insights ZA" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hr-insights.co.za/" />
-  <meta property="og:title" content="HR Insights | Recruitment & HR Governance Services" />
+  <meta property="og:url" content="https://hrinsightsza.co.za/" />
+  <meta property="og:title" content="HR Insights ZA | Strategic HR & Recruitment Consulting" />
   <meta property="og:description"
-    content="Expert HR governance, recruitment, and employee relations services dedicated to transforming workforces in South Africa." />
-  <meta property="og:image" content="https://hr-insights.co.za/images/Capture.png" />
+    content="Black woman-owned strategic HR consulting firm. Expert HR governance, recruitment, and employee relations services in Pretoria, South Africa." />
+  <meta property="og:image" content="https://hrinsightsza.co.za/images/Capture.png" />
+  <meta property="og:site_name" content="HR Insights ZA" />
+  <meta property="og:locale" content="en_ZA" />
 
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://hr-insights.co.za/" />
-  <meta property="twitter:title" content="HR Insights | Recruitment & HR Governance Services" />
-  <meta property="twitter:description"
-    content="Expert HR governance, recruitment, and employee relations services dedicated to transforming workforces in South Africa." />
-  <meta property="twitter:image" content="https://hr-insights.co.za/images/Capture.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://hrinsightsza.co.za/" />
+  <meta name="twitter:title" content="HR Insights ZA | Strategic HR & Recruitment Consulting" />
+  <meta name="twitter:description"
+    content="Expert HR governance, recruitment, and employee relations services in Pretoria, South Africa." />
+  <meta name="twitter:image" content="https://hrinsightsza.co.za/images/Capture.png" />
+
+  <!-- Geo targeting for South Africa -->
+  <meta name="geo.region" content="ZA-GT" />
+  <meta name="geo.placename" content="Pretoria" />
 
   <style>
     body {

@@ -245,16 +245,7 @@
     overflow: hidden;
 }
 
-.cta-bar::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
-    pointer-events: none;
-}
+
 
 .cta-title {
     font-family: var(--font);

@@ -1,40 +1,81 @@
 import { useEffect } from 'react';
 
+const SITE_URL = 'https://hrinsightsza.co.za';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/images/Capture.png`;
+
 interface SEOProps {
     title: string;
     description: string;
     keywords?: string;
+    path?: string;
+    ogImage?: string;
+    jsonLd?: object | object[];
 }
 
-export default function SEO({ title, description, keywords }: SEOProps) {
+function setMetaTag(attribute: string, key: string, content: string) {
+    let element = document.querySelector(`meta[${attribute}="${key}"]`);
+    if (element) {
+        element.setAttribute('content', content);
+    } else {
+        element = document.createElement('meta');
+        element.setAttribute(attribute, key);
+        element.setAttribute('content', content);
+        document.head.appendChild(element);
+    }
+}
+
+export default function SEO({ title, description, keywords, path = '/', ogImage, jsonLd }: SEOProps) {
     useEffect(() => {
-        // Update Title
+        const fullUrl = `${SITE_URL}${path}`;
+        const image = ogImage || DEFAULT_OG_IMAGE;
+
         document.title = title;
 
-        // Update Meta Description
-        let metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-            metaDescription.setAttribute('content', description);
-        } else {
-            metaDescription = document.createElement('meta');
-            metaDescription.setAttribute('name', 'description');
-            metaDescription.setAttribute('content', description);
-            document.head.appendChild(metaDescription);
-        }
+        setMetaTag('name', 'description', description);
 
-        // Update Meta Keywords (Optional but good for completeness)
         if (keywords) {
-            let metaKeywords = document.querySelector('meta[name="keywords"]');
-            if (metaKeywords) {
-                metaKeywords.setAttribute('content', keywords);
-            } else {
-                metaKeywords = document.createElement('meta');
-                metaKeywords.setAttribute('name', 'keywords');
-                metaKeywords.setAttribute('content', keywords);
-                document.head.appendChild(metaKeywords);
-            }
+            setMetaTag('name', 'keywords', keywords);
         }
-    }, [title, description, keywords]);
 
-    return null; // This component doesn't render anything UI-wise
+        let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+        if (canonical) {
+            canonical.href = fullUrl;
+        } else {
+            canonical = document.createElement('link');
+            canonical.rel = 'canonical';
+            canonical.href = fullUrl;
+            document.head.appendChild(canonical);
+        }
+
+        setMetaTag('property', 'og:title', title);
+        setMetaTag('property', 'og:description', description);
+        setMetaTag('property', 'og:url', fullUrl);
+        setMetaTag('property', 'og:image', image);
+
+        setMetaTag('name', 'twitter:title', title);
+        setMetaTag('name', 'twitter:description', description);
+        setMetaTag('name', 'twitter:url', fullUrl);
+        setMetaTag('name', 'twitter:image', image);
+
+        const existingScripts = document.querySelectorAll('script[data-seo-jsonld]');
+        existingScripts.forEach(s => s.remove());
+
+        if (jsonLd) {
+            const schemas = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+            schemas.forEach((schema, index) => {
+                const script = document.createElement('script');
+                script.setAttribute('data-seo-jsonld', `schema-${index}`);
+                script.type = 'application/ld+json';
+                script.textContent = JSON.stringify(schema);
+                document.head.appendChild(script);
+            });
+        }
+
+        return () => {
+            const scripts = document.querySelectorAll('script[data-seo-jsonld]');
+            scripts.forEach(s => s.remove());
+        };
+    }, [title, description, keywords, path, ogImage, jsonLd]);
+
+    return null;
 }

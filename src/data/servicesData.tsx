@@ -13,6 +13,7 @@ export interface ServiceItem {
     title: string;
     category: 'Core Solutions';
     brief: string;
+    seoDescription: string;
     icon: ReactNode;
     image?: string;
     fullContent: ReactNode;
@@ -23,9 +24,10 @@ export const SERVICES: ServiceItem[] = [
         slug: 'hr-governance-documentation',
         title: 'HR Governance & Documentation',
         category: 'Core Solutions',
-        image: '/images/Governance.jpg',
+        image: '/images/Governance.webp',
         icon: <FileText size={28} />,
         brief: 'Legally sound HR foundations for your organisation.',
+        seoDescription: 'HR governance and documentation services in South Africa. Employment contracts, HR policies aligned to BCEA, LRA, and Employment Equity legislation. Reduce compliance risk with defensible HR systems.',
         fullContent: (
             <>
                 <p className="ds-body-lg">We develop and align HR documentation to ensure compliance, consistency, and fairness across the organisation.</p>
@@ -52,9 +54,10 @@ export const SERVICES: ServiceItem[] = [
         slug: 'performance-management-systems',
         title: 'Performance Management Systems',
         category: 'Core Solutions',
-        image: '/images/performance.jpg',
+        image: '/images/performance.webp',
         icon: <BarChart3 size={28} />,
         brief: 'Role-aligned performance, not generic KPIs.',
+        seoDescription: 'Performance management systems designed for South African businesses. Job descriptions, KPI frameworks, PIPs, and performance review templates aligned to labour law and organisational goals.',
         fullContent: (
             <>
                 <p className="ds-body-lg">We design performance systems aligned to actual job roles, organisational objectives, and legal requirements.</p>
@@ -77,9 +80,10 @@ export const SERVICES: ServiceItem[] = [
         slug: 'employee-relations-ir-support',
         title: 'Employee Relations & IR Support',
         category: 'Core Solutions',
-        image: '/images/relations.jpg',
+        image: '/images/relations.webp',
         icon: <ShieldCheck size={28} />,
         brief: 'Procedurally fair, compliant employee relations.',
+        seoDescription: 'Employee relations and industrial relations support in South Africa. Disciplinary hearings, CCMA preparation, IR policy alignment, and management advisory for procedurally fair outcomes.',
         fullContent: (
             <>
                 <p className="ds-body-lg">We provide structured IR support (Employee Relations) to ensure fairness and compliance at every stage.</p>
@@ -101,9 +105,10 @@ export const SERVICES: ServiceItem[] = [
         slug: 'organisational-development',
         title: 'Organisational Development (OD)',
         category: 'Core Solutions',
-        image: '/images/od.jpg',
+        image: '/images/od.webp',
         icon: <GitBranch size={28} />,
         brief: 'Creating clarity, accountability, and alignment.',
+        seoDescription: 'Organisational development consulting in South Africa. Structure reviews, role clarity, job architecture, and change management support to align people practices with business performance.',
         fullContent: (
             <>
                 <p className="ds-body-lg">Our OD services ensure organisational structures, roles, and people practices support performance rather than create risk.</p>
@@ -126,9 +131,10 @@ export const SERVICES: ServiceItem[] = [
         slug: 'recruitment-governance-compliance',
         title: 'Recruitment Governance & Compliance',
         category: 'Core Solutions',
-        image: '/images/rg.jpg',
+        image: '/images/rg.webp',
         icon: <ClipboardCheck size={28} />,
         brief: 'Recruitment processes that are fair, structured, and defensible.',
+        seoDescription: 'Recruitment governance and compliance services in South Africa. Selection policies, interview guides, scoring templates, and Employment Equity alignment for legally defensible hiring.',
         fullContent: (
             <>
                 <p className="ds-body-lg">We support organisations in building recruitment systems that are fair, structured, and legally defensible.</p>
@@ -151,9 +157,10 @@ export const SERVICES: ServiceItem[] = [
         slug: 'recruitment',
         title: 'Recruitment',
         category: 'Core Solutions',
-        image: '/images/strategic.jpg',
+        image: '/images/strategic.webp',
         icon: <Users size={28} />,
         brief: 'Strategic recruitment with a compliance focus.',
+        seoDescription: 'Strategic recruitment services in Pretoria, South Africa. Retainer and project-based hiring with governance-led processes. Headhunting, talent pooling, and compliant recruitment for all industries.',
         fullContent: (
             <>
                 <p className="ds-body-lg">At HR Insights, recruitment is treated as a governance and decision-making process, not a transactional activity.</p>

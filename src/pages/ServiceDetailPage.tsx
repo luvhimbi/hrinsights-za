@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import {  ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import SEO from '../Components/SEO';
 import PageHeader from '../Components/PageHeader';
 import { getServiceBySlug, getOtherServices } from '../data/servicesData';
@@ -12,13 +12,17 @@ export default function ServiceDetailPage() {
   const otherServices = service ? getOtherServices(service.slug) : [];
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Ensure page starts at top
+    window.scrollTo(0, 0);
   }, [service]);
 
   if (!service) {
     return (
       <>
-        <SEO title="Service Not Found | HR Insights" description="The requested service could not be found." />
+        <SEO
+          title="Service Not Found | HR Insights ZA"
+          description="The requested service could not be found."
+          path={`/services/${slug || ''}`}
+        />
         <PageHeader title="Service not found" />
         <section className="ds-section-light">
           <div className="ds-container text-center">
@@ -32,16 +36,61 @@ export default function ServiceDetailPage() {
     );
   }
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.seoDescription,
+    "url": `https://hrinsightsza.co.za/services/${service.slug}`,
+    "provider": {
+      "@type": "LocalBusiness",
+      "@id": "https://hrinsightsza.co.za/#organization",
+      "name": "HR Insights ZA"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "South Africa"
+    },
+    "serviceType": "HR Consulting"
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://hrinsightsza.co.za/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://hrinsightsza.co.za/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": service.title
+      }
+    ]
+  };
+
   return (
     <div className="ds-page-white">
       <SEO
-        title={`HR Insights | ${service.title}`}
-        description={service.brief || `Expert ${service.title} services by HR Insights. Transform your business with our specialized HR solutions.`}
+        title={`${service.title} | HR Insights ZA - South Africa`}
+        description={service.seoDescription}
+        keywords={`${service.title}, HR consulting South Africa, ${service.title} Pretoria, labour law compliance`}
+        path={`/services/${service.slug}`}
+        jsonLd={[serviceSchema, breadcrumbSchema]}
       />
       <PageHeader
         title={service.title}
         subtitle={service.category}
-        backgroundImage={service.image || "/images/services/services.jpg"}
+        backgroundImage={service.image || "/images/services/services.webp"}
       />
 
       <section className="ds-section-light">
@@ -70,16 +119,16 @@ export default function ServiceDetailPage() {
             <div className="ds-accent-line mx-auto"></div>
           </div>
 
-          <div className="ds-service-grid"> {/* Use unified grid class */}
+          <div className="ds-service-grid">
             {otherServices.slice(0, 3).map((s) => (
               <Link
                 key={s.slug}
                 to={`/services/${s.slug}`}
-                className="service-card" /* Use unified card class */
+                className="service-card"
               >
                 {s.image && (
                   <div className="service-card-banner">
-                    <img src={s.image} alt={s.title} />
+                    <img src={s.image} alt={s.title} loading="lazy" />
                   </div>
                 )}
                 <div className="service-card-body">
@@ -94,12 +143,6 @@ export default function ServiceDetailPage() {
               </Link>
             ))}
           </div>
-
-          {/*<div className="text-center mt-5">*/}
-          {/*  <Link to="/services" className="ds-btn-text">*/}
-          {/*    <ArrowLeft size={16} style={{ marginRight: '8px' }} /> View all solutions*/}
-          {/*  </Link>*/}
-          {/*</div>*/}
         </div>
       </section>
     </div>

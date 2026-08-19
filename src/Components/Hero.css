@@ -2,12 +2,11 @@
 
 .ds-hero {
     position: relative;
-    min-height: 90vh;
-    /* Increased for impact */
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8rem 2rem 6rem;
+    padding: 4.5rem 2rem 4.5rem;
     overflow: hidden;
     text-align: center;
 }
@@ -18,11 +17,8 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--navy-900);
-    background-image: url('/images/hero.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    object-fit: cover;
+    object-position: center;
     z-index: -2;
     /* Optional: subtle parallax or zoom effect could be added here if we had JS */
     animation: bg-pan 45s infinite alternate ease-in-out;
@@ -38,16 +34,13 @@
     }
 }
 
-/* Premium Gradient Overlay - More vibrant, less muddy */
+/* Solid Overlay */
 .ds-hero-overlay {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg,
-            hsla(220, 65%, 4%, 0.7) 0%,
-            hsla(220, 50%, 8%, 0.5) 40%,
-            hsla(220, 45%, 15%, 0.3) 100%);
+    background: rgba(2, 12, 27, 0.75);
     z-index: -1;
 }
 
@@ -98,9 +91,8 @@
 
 /* Hero Specific Buttons (overrides or extensions) */
 .ds-hero-actions .ds-btn {
-    padding: 1.125rem 2.5rem;
-    /* Larger touch targets */
-    font-size: 1.1rem;
+    padding: 0.75rem 1.75rem;
+    font-size: 0.95rem;
     border-radius: 50px;
     /* Pill shape */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -140,10 +132,9 @@
 /* Responsive */
 @media (max-width: 768px) {
     .ds-hero {
-        padding-top: 160px;
-        /* Increased from 140px to prevent overlap */
+        padding-top: 50px;
         min-height: auto;
-        padding-bottom: 6rem;
+        padding-bottom: 4rem;
         text-align: center;
     }
 
@@ -168,6 +159,7 @@
     .ds-hero-actions .ds-btn {
         width: 100%;
         max-width: none;
-        padding: 1rem 2rem;
+        padding: 0.75rem 1.75rem;
+        font-size: 0.95rem;
     }
 }

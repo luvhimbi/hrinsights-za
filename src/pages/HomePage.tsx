@@ -18,15 +18,83 @@ import {
 import './HomePage.css';
 
 export default function HomePage() {
-  // We'll showcase the first 3 services
   const featuredServices = SERVICES.slice(0, 3);
 
   return (
     <div className="ds-page">
       <SEO
-        title="HR Insights | Professional HR Services & Recruitment South Africa"
-        description="Transform your workforce with HR Insights. Expert HR governance, recruitment, and employee relations services in Pretoria, South Africa."
-        keywords="HR Consultancy, Recruitment, Employee Relations, South Africa HR"
+        title="HR Insights ZA | Strategic HR Governance & Recruitment Consulting in South Africa"
+        description="HR Insights is a Black woman-owned strategic HR consulting firm in Pretoria. Expert HR governance, recruitment, employee relations, performance management, and CCMA compliance services across South Africa."
+        keywords="HR consulting South Africa, HR governance Pretoria, recruitment services Gauteng, employee relations, CCMA compliance, Black woman-owned HR firm, labour law compliance BCEA LRA, performance management systems, organisational development"
+        path="/"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://hrinsightsza.co.za/#organization",
+            "name": "HR Insights ZA",
+            "alternateName": "HR Insights",
+            "url": "https://hrinsightsza.co.za",
+            "logo": "https://hrinsightsza.co.za/images/Capture.png",
+            "image": "https://hrinsightsza.co.za/images/Capture.png",
+            "description": "HR Insights is a Black woman-owned strategic HR consulting firm specialising in HR governance, recruitment, employee relations, and organisational development in South Africa.",
+            "telephone": "+27694082742",
+            "email": "hrinsights1@outlook.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Pretoria",
+              "addressRegion": "Gauteng",
+              "addressCountry": "ZA"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -25.7479,
+              "longitude": 28.2293
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "08:00",
+              "closes": "16:00"
+            },
+            "priceRange": "$$",
+            "areaServed": {
+              "@type": "Country",
+              "name": "South Africa"
+            },
+            "founder": {
+              "@type": "Person",
+              "name": "Ntshebo Vivian Mofokeng",
+              "jobTitle": "Founder & Strategic HR Consultant"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/hr-insights-with-vivian/",
+              "https://www.facebook.com/profile.php?id=61583501392648",
+              "https://www.instagram.com/_hrinsights_/"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "HR Consulting Services",
+              "itemListElement": SERVICES.map((s, i) => ({
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": s.title,
+                  "description": s.seoDescription,
+                  "url": `https://hrinsightsza.co.za/services/${s.slug}`
+                },
+                "position": i + 1
+              }))
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "HR Insights ZA",
+            "url": "https://hrinsightsza.co.za",
+            "description": "Strategic HR governance and recruitment consulting firm in Pretoria, South Africa."
+          }
+        ]}
       />
       <Hero />
 
@@ -34,13 +102,13 @@ export default function HomePage() {
         {/* Featured Services Section */}
         <section id="services" className="ds-section-light">
           <div className="ds-container">
-            <h2 className="ds-heading-2 text-center mb-4 ds-section-title fw-800">Our Featured Services</h2>
+            <h2 className="ds-heading-2 text-center mb-4 ds-section-title fw-800">Our Strategic HR & Recruitment Services</h2>
             <div className="ds-grid">
               {featuredServices.map((service) => (
                 <div key={service.slug} className="ds-card service-showcase-card">
                   {service.image && (
                     <div className="service-card-image">
-                      <img src={service.image} alt={service.title} />
+                      <img src={service.image} alt={service.title} loading="lazy" />
                     </div>
                   )}
                   <div className="service-card-body">
@@ -162,7 +230,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Why Choose Us Section - Tightened spacing */}
+        {/* Why Choose Us Section */}
         <section className="ds-section-light pt-0">
           <div className="ds-container">
             <hr className="ds-divider mb-4" style={{ opacity: 0.1 }} />
@@ -200,7 +268,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Company Profile Section - Compact Card */}
+        {/* Company Profile Section */}
         <section className="ds-section-light pt-0">
           <div className="ds-container">
             <div className="profile-download-card">
@@ -226,19 +294,6 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Final CTA Bar - Compressed Height */}
-        <section className="cta-bar">
-          <div className="ds-container text-center">
-            <h2 className="cta-title">Ready to Elevate Your Team?</h2>
-            <p className="lead opacity-75 mb-4">
-              Stop managing HR. Start building a legacy. Let’s position your team for high-impact growth.
-            </p>
-            <Link to="/contact" className="ds-btn ds-btn-secondary">
-              Get in touch
-            </Link>
           </div>
         </section>
       </main>

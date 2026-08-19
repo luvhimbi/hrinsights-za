@@ -66,19 +66,20 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 320px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+    width: 340px; /* Slightly wider for better spacing */
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(2, 12, 27, 0.18);
     overflow: hidden;
-    transform: translateY(20px) scale(0.9);
+    transform: translateY(20px) scale(0.95);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
     transform-origin: bottom right;
     display: flex;
     flex-direction: column;
-    max-height: calc(100vh - 100px);
+    max-height: calc(100vh - 120px);
+    border: 1px solid rgba(2, 12, 27, 0.08);
 }
 
 .ds-whatsapp-wrapper.is-open .ds-whatsapp-card {
@@ -89,13 +90,13 @@
 
 /* Header */
 .ds-whatsapp-header {
-    background-color: #075e54;
-    /* Darker WhatsApp Green */
-    padding: 20px;
-    color: white;
+    background-color: var(--navy-950);
+    padding: 1.25rem;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .ds-whatsapp-header-info {
@@ -105,47 +106,62 @@
 }
 
 .ds-whatsapp-avatar {
-    width: 44px;
-    height: 44px;
-    background: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    background: #25d366; /* WhatsApp Green icon background */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    color: #ffffff;
 }
 
 .online-indicator {
     width: 10px;
     height: 10px;
     background-color: #25d366;
-    border: 2px solid #075e54;
+    border: 2px solid var(--navy-950);
     border-radius: 50%;
     position: absolute;
-    bottom: 2px;
-    right: 2px;
+    bottom: 0;
+    right: 0;
+    animation: indicator-pulse 2s infinite;
+}
+
+@keyframes indicator-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 6px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
 }
 
 .ds-whatsapp-header-info h4 {
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 .ds-whatsapp-header-info p {
-    margin: 0;
+    margin: 2px 0 0;
     font-size: 0.75rem;
-    opacity: 0.8;
+    opacity: 0.75;
 }
 
 .ds-whatsapp-close {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     border: none;
-    color: white;
+    color: #ffffff;
     cursor: pointer;
-    opacity: 0.9;
-    transition: all 0.2s;
-    padding: 8px;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+    padding: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -153,41 +169,85 @@
 }
 
 .ds-whatsapp-close:hover {
-    background: rgba(0, 0, 0, 0.2);
-    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.15);
+    opacity: 1;
+    transform: scale(1.05);
 }
 
-/* Form */
+/* Form Container */
 .ds-whatsapp-form {
-    padding: 20px;
-    background: #f0f2f5;
+    padding: 1.25rem;
+    background: #ffffff; /* Crisp white background */
     overflow-y: auto;
     flex: 1;
 }
 
+/* Chat bubble styling */
+.ds-whatsapp-intro-bubble {
+    background: var(--navy-50);
+    border: 1px solid var(--navy-100);
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 0.825rem;
+    line-height: 1.45;
+    color: var(--navy-900);
+    margin-bottom: 1.25rem;
+    position: relative;
+}
+
+.ds-whatsapp-intro-bubble::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -6px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid var(--navy-100);
+}
+
+.ds-whatsapp-intro-bubble p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.bubble-time {
+    display: block;
+    text-align: right;
+    font-size: 0.65rem;
+    color: rgba(10, 22, 40, 0.4);
+    margin-top: 4px;
+}
+
+/* Input Fields */
 .ds-whatsapp-field {
-    margin-bottom: 15px;
+    margin-bottom: 1.25rem;
 }
 
 .ds-whatsapp-field label {
     display: block;
-    font-size: 0.8rem;
-    color: #667781;
+    font-size: 0.775rem;
+    color: var(--navy-600);
     margin-bottom: 6px;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 .ds-whatsapp-field input,
 .ds-whatsapp-field select,
 .ds-whatsapp-field textarea {
     width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #e1e9ee;
+    padding: 11px 14px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
     font-size: 0.9rem;
     outline: none;
-    transition: border-color 0.2s;
+    transition: all 0.2s ease;
     font-family: inherit;
+    background: #ffffff;
+    color: var(--navy-950);
 }
 
 .ds-whatsapp-field textarea {
@@ -197,31 +257,33 @@
 .ds-whatsapp-field input:focus,
 .ds-whatsapp-field select:focus,
 .ds-whatsapp-field textarea:focus {
-    border-color: #25d366;
+    border-color: var(--navy-400);
+    box-shadow: 0 0 0 3px rgba(74, 122, 176, 0.15); /* Soft focus ring in navy-400 */
 }
 
+/* Submit Button */
 .ds-whatsapp-submit {
     width: 100%;
     background-color: #25d366;
-    color: white;
+    color: #ffffff;
     border: none;
-    padding: 14px;
-    border-radius: 10px;
+    padding: 12px 18px;
+    border-radius: 8px;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ds-whatsapp-submit:hover {
     background-color: #20ba5a;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
 }
 
 .ds-whatsapp-submit:disabled {
@@ -248,11 +310,11 @@
     }
 
     .ds-whatsapp-header {
-        padding: 15px;
+        padding: 1rem;
     }
 
     .ds-whatsapp-form {
-        padding: 15px;
+        padding: 1rem;
     }
 
     .ds-whatsapp-toggle {

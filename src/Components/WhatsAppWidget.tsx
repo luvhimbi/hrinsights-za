@@ -99,7 +99,7 @@ export default function WhatsAppWidget() {
                         <input
                             id="wa-name"
                             type="text"
-                            placeholder="Type your name..."
+                            placeholder="e.g. Sarah Adams"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
@@ -110,13 +110,13 @@ export default function WhatsAppWidget() {
                     <div className="ds-whatsapp-field">
                         <label htmlFor="wa-email">Email Address</label>
                         <input
-                            id="wa-email"
-                            type="email"
-                            placeholder="Type your email..."
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            autoComplete="email"
+                             id="wa-email"
+                             type="email"
+                             placeholder="e.g. sarah@company.com"
+                             value={email}
+                             onChange={(e) => setEmail(e.target.value)}
+                             required
+                             autoComplete="email"
                         />
                     </div>
                     <div className="ds-whatsapp-field">
@@ -138,7 +138,7 @@ export default function WhatsAppWidget() {
                         <label htmlFor="wa-message">How can we help?</label>
                         <textarea
                             id="wa-message"
-                            placeholder="Type your message..."
+                            placeholder="Briefly describe your HR requirements or questions..."
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                             rows={3}

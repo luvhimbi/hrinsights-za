@@ -13,20 +13,24 @@ export default function NotFoundPage() {
             <div className="ds-not-found">
                 <div className="ds-not-found-content">
                     <div className="ds-404-visual">
-                        <h1 className="ds-404-number">404</h1>
+                        <div className="ds-404-number">404</div>
                         <div className="ds-404-glow"></div>
                     </div>
 
-                    <h2 className="ds-not-found-title">Page Not Found</h2>
+                    <h1 className="ds-not-found-title">404 - Page Not Found</h1>
                     <p className="ds-not-found-text">
-                        The requested page doesn't exist or has been moved.
-                        Let's get you back on track.
+                        The requested page doesn't exist or has been moved. 
+                        At HR Insights, we believe in structural clarity—and it looks like this link is out of alignment. 
+                        Let's get you back to our strategic HR solutions.
                     </p>
 
                     <div className="ds-not-found-actions">
                         <Link to="/" className="ds-btn ds-btn-primary">
                             <Home size={20} style={{ marginRight: '8px' }} />
-                            Back to Home
+                            Return to Home
+                        </Link>
+                        <Link to="/services" className="ds-btn ds-btn-outline-dark" style={{ marginLeft: '10px' }}>
+                            Explore Services
                         </Link>
                     </div>
                 </div>

@@ -6,17 +6,52 @@ import { SERVICES } from '../data/servicesData';
 import './ServicesPage.css';
 
 export default function ServicesPage() {
+    const itemListSchema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "HR Consulting Services by HR Insights ZA",
+        "description": "Strategic HR governance, recruitment, and employee relations services for South African businesses.",
+        "numberOfItems": SERVICES.length,
+        "itemListElement": SERVICES.map((service, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": `https://hrinsightsza.co.za/services/${service.slug}`,
+            "name": service.title,
+            "description": service.seoDescription
+        }))
+    };
+
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://hrinsightsza.co.za/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Services"
+            }
+        ]
+    };
+
     return (
         <div className="ds-page-white">
             <SEO
-                title="Our Services | HR Solutions & Recruitment in Pretoria"
-                description="Explore our specialized HR and recruitment services. From HR audits to specialized recruitment, we build resilient teams and mitigate organizational risk."
-                keywords="HR Services, Recruitment Pretoria, HR Audits, Employee Relations"
+                title="HR & Recruitment Services | HR Insights ZA - Pretoria, South Africa"
+                description="Explore our HR governance, performance management, employee relations, organisational development, and recruitment services. Strategic workforce solutions for South African businesses."
+                keywords="HR services South Africa, recruitment services Pretoria, HR governance, performance management systems, employee relations, organisational development, CCMA compliance"
+                path="/services"
+                jsonLd={[itemListSchema, breadcrumbSchema]}
             />
             <PageHeader
-                title="Our Services"
-                subtitle="Specialised HR and Recruitment services designed to build resilient teams and mitigate organizational risk."
-                backgroundImage="/images/services/services.jpg"
+                title="HR & Recruitment Consulting Services"
+                subtitle="Specialised HR compliance, employee relations, and talent solutions designed to build resilient teams and mitigate organizational risk in South Africa."
+                backgroundImage="/images/services/services.webp"
             />
 
             <section className="ds-section-light">

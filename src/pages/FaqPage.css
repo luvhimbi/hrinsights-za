@@ -107,13 +107,7 @@
     z-index: 1;
 }
 
-.cta-box::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
-    z-index: -1;
-}
+
 
 .cta-icon {
     width: 64px;
@@ -147,6 +141,7 @@
     color: var(--navy-900);
     text-decoration: none;
     max-width: 250px;
+    margin: 0 auto;
 }
 
 .cta-box .btn-submit:hover {
